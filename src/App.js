@@ -2,7 +2,6 @@ import React from 'react'
 import logo from './assets/logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import { useAuth0 } from "@auth0/auth0-react";
 import HomePage from './public/home';
 import ListMemberComponent from './member/ListMemberComponent';
 import HeaderComponent from './HeaderComponent';
@@ -14,15 +13,11 @@ import CreateMemberComponent from './member/CreateMemberComponent';
 import ViewMemberComponent from './member/ViewMemberComponent';
 import PlanGroupComponent from "./plangroup/PlanGroupComponent";
 
-import ProtectedRoute from "./auth/protected-route";
+// Auth removed; routes are now public
 
 function App() {
 
-    const { isLoading } = useAuth0();
-
-    if (isLoading) {
-        return <Loading />;
-    }
+    // No authentication loading state
 
   return (
     <div className="App">
@@ -36,8 +31,8 @@ function App() {
                     <Route path = "/view-member/:id" component = {ViewMemberComponent}></Route>
                     {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                     <Route path = "/plangroups" component = {PlanGroupComponent}></Route>
-                    <ProtectedRoute path = "/profile" component = {Profile}></ProtectedRoute>
-                    <ProtectedRoute path="/external-api" component={ExternalApi} />
+                    <Route path = "/profile" component = {Profile}></Route>
+                    <Route path="/external-api" component={ExternalApi} />
                 </Switch>
             </div>
             <FooterComponent />

@@ -1,10 +1,9 @@
 import React from "react";
 
-import {useAuth0, withAuthenticationRequired} from "@auth0/auth0-react";
-import Loading from "../Loading";
+// Authentication removed
 
 const Profile = () => {
-    const { user } = useAuth0();
+    const user = { name: "Guest", picture: "https://via.placeholder.com/150", email: "guest@example.com" };
     const { name, picture, email } = user;
 
     return (
@@ -23,9 +22,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className="row">
-        <pre className="col-12 text-light bg-dark p-4">
-          {JSON.stringify(user, null, 2)}
-        </pre>
+        <pre className="col-12 text-light bg-dark p-4">{JSON.stringify(user, null, 2)}</pre>
             </div>
         </div>
     );

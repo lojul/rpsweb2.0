@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const ExternalApi = () => {
     const [message, setMessage] = useState("");
     const serverUrl = process.env.REACT_APP_SERVER_URL;
 
-    const { getAccessTokenSilently } = useAuth0();
+    // Auth removed; secure endpoint call disabled
 
     const callApi = async () => {
         try {
@@ -20,33 +19,14 @@ const ExternalApi = () => {
     };
 
     const callSecureApi = async () => {
-        try {
-            const token = await getAccessTokenSilently();
-
-            const response = await fetch(
-                `${serverUrl}/api/messages/private-message`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-
-            const responseData = await response.json();
-
-            setMessage(responseData.message);
-        } catch (error) {
-            setMessage(error.message);
-        }
+        setMessage("Authentication removed: protected call disabled.");
     };
 
     return (
         <div className="container">
             <h1>External API</h1>
             <p>
-                Use these buttons to call an external API. The protected API call has an
-                access token in its authorization header. The API server will validate
-                the access token using the Auth0 Audience value.
+                Use these buttons to call an external API. Protected call is disabled since authentication was removed.
             </p>
             <div
                 className="btn-group mt-5"

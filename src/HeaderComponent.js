@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Nav,  Navbar, NavDropdown } from 'react-bootstrap';
 
-import AuthNav from "./auth/auth-nav";
+// Auth navigation removed
 
 class HeaderComponent extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class HeaderComponent extends Component {
                                 <Nav.Link href="/profile">Profile</Nav.Link>
                                 <Nav.Link href="/external-api">External-api Example</Nav.Link>
                             </Nav>
-                            <AuthNav />
+                            {/* Auth controls removed */}
                         </Navbar.Collapse>
 
                     </Navbar>
