@@ -1,7 +1,14 @@
 {
   "name": "rpsweb2.0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "engines": {
+    "node": ">=16 <17",
+    "npm": ">=7 <9"
+  },
+  "volta": {
+    "node": "16.20.2"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^1.2.0",
     "@testing-library/jest-dom": "^5.11.4",
